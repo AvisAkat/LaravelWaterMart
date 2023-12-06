@@ -14,7 +14,7 @@ return new class extends Migration
         
 
         Schema::table('products', function (Blueprint $table) {
-            // $table->unsignedBigInteger('brand_id');
+            $table->unsignedBigInteger('brand_id');
 
             $table->foreign('brand_id')->references('id')->on('brands')->onUpdate('cascade')->onDelete('cascade');
         });

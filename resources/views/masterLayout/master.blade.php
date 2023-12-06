@@ -40,7 +40,7 @@
 <body>
     
     {{-- NAVBAR --}}
-    @include('masterLayout.nav')
+    @include('masterlayout.nav')
     
     {{-- ALERT MESSAGES --}}
     @if (session('status'))
