@@ -29,6 +29,7 @@
 
     padding: 0;
     border: 0px;
+    /* margin-right: -300px; */
     }
     
     .card-header {
@@ -37,6 +38,8 @@
     
     .box2 {
     /* height:600px */
+    /* margin-top: 50px; 
+    margin-bottom: -50px;  */
     }
     .heading {
     font-weight:900

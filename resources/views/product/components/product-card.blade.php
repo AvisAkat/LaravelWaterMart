@@ -1,5 +1,27 @@
-<div class="card m-3 p-3" style="width: 18rem;">
-    <img src="{{ $product->getProductImage()}}" class="card-img-top" alt="..." style="height: 14rem">
+<style>
+
+  .card{
+    width: 18rem;
+  }
+
+  .card img{
+    height: 14rem;
+    text-align: center;
+    justify-content: center;
+  }
+
+  @media(max-width: 767px)
+    {
+        .card{
+            width: 23rem;
+        }
+
+        
+  }
+</style>
+
+<div class="card m-3 p-3">
+    <img src="{{ $product->getProductImage()}}" class="card-img-top" alt="..." >
     <div class="card-body">
       <h5 class="card-title">{{ $product->name }}</h5>
       <p class="card-text">{{ $product->description }}</p>
