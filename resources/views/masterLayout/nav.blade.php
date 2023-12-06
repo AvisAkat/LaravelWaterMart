@@ -191,7 +191,7 @@
 <div class="double-navbar fixed-top ">
     
     <nav class="navbar navbar-expand-md flex-nowrap navbar-new-top"> {{-- fixed-top --}}
-        <a href="/" class="navbar-brand"><img src="http://localhost:8000/images/water-drop.png" alt=""/> Water Mart</a>
+        <a href="/" class="navbar-brand"><img src="{{env('APP_URL')}}/images/water-drop.png" alt=""/> Water Mart</a>
         <ul class="nav navbar-nav mr-auto"></ul>
         <ul class="navbar-nav flex-row">
             
@@ -213,7 +213,7 @@
                 <li class="nav-item">
                     <button type="button" class="btn1 nav-link px-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         {{-- {{ Auth::user()->email }} --}}
-                        <img src="@if(Auth::user()->userProfile->profile_pic === null) http://localhost:8000/images/user.png @else {{ Auth::user()->userProfile->getUserProfilePic()}} @endif" />
+                        <img src="@if(Auth::user()->userProfile->profile_pic === null) {{env('APP_URL')}}/images/user.png @else {{ Auth::user()->userProfile->getUserProfilePic()}} @endif" />
                     </button>
                 </li>
                     <!-- Modal -->

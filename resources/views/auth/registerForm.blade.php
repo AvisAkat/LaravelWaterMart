@@ -198,9 +198,10 @@
       <div class="card col-md-5 col-12 box1">
 
         @if($active)
-          <img src="http://localhost:8000/images/water7.jpg" alt="" style="width: 100%;height: 100%;"/>
+          <img src="{{env('APP_URL')}}/images/water7.jpg" alt="" style="width: 100%;height: 100%;"/>
+          {{-- <img src="http://localhost:8000/images/water7.jpg" alt="" style="width: 100%;height: 100%;"/> --}}
         @else
-          <img src="http://localhost:8000/images/water4.jpg" alt="" style="width: 100%;height: 100%;"/>
+          <img src="{{env('APP_URL')}}/images/water4.jpg" alt="" style="width: 100%;height: 100%;"/>
         @endif
         
       </div>
