@@ -225,21 +225,7 @@
                     </form>
                 </li>
 
-                {{-- @if(Auth::User()->role == 'admin')
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle admin" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Admin
-                        </a>
-                        <ul class="dropdown-menu" style="margin-right: 10px;">
-                            <li><a class="dropdown-item" href="{{ route('admin.users.index')}}">🙎 Users</a></li>
-                            <li><a class="dropdown-item" href="{{ route('admin.products.index')}}">📦 Products</a></li>
-                            <li><a class="dropdown-item" href="{{ route('admin.sales.index')}}">📈 Sales</a></li>
-                            <li><a class="dropdown-item" href="{{ route('admin.brands.index')}}">🔖 Brands</a></li>
-                        </ul>
-                    </li>
-                    
-                    
-                @endif --}}
+                
             @endauth
             
         </ul>
