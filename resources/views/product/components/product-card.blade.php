@@ -1,10 +1,10 @@
 <style>
 
-  .card{
+  .pro-card{
     width: 18rem;
   }
 
-  .card img{
+  .pro-card img{
     height: 14rem;
     text-align: center;
     justify-content: center;
@@ -12,7 +12,7 @@
 
   @media(max-width: 767px)
     {
-        .card{
+        .pro-card{
             width: 23rem;
         }
 
@@ -20,7 +20,7 @@
   }
 </style>
 
-<div class="card m-3 p-3">
+<div class="card pro-card m-3 p-3">
     <img src="{{ $product->getProductImage()}}" class="card-img-top" alt="..." >
     <div class="card-body">
       <h5 class="card-title">{{ $product->name }}</h5>

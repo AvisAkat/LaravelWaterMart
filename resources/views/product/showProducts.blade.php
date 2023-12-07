@@ -9,12 +9,7 @@
         justify-content: center;
     }
 
-    @media(max-width: 767px)
-    {
-        .card{
-            width: 23rem;
-        }
-    }
+   
 
 </style>
     
