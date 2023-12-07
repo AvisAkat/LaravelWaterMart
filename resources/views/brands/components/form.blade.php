@@ -83,7 +83,7 @@
 
 <div class="container contact-form">
     <div class="contact-image">
-        <img src="http://localhost:8000/images/water-drop.png" alt="logo"/>
+        <img src="{{env('APP_URL')}}/images/water-drop.png" alt="logo"/>
     </div>
     <form action="{{ $action }}" method="post" >
         @csrf

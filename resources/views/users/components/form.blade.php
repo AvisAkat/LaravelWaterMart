@@ -102,7 +102,7 @@ if(!$active)
     <div class="container contact-form">
         <div class="contact-image">
             {{-- <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/> --}}
-            <img src="http://localhost:8000/images/water-drop.png" alt="logo"/>
+            <img src="{{env('APP_URL')}}/images/water-drop.png" alt="logo"/>
             {{-- <div class="icon"><i class="bi bi-droplet-half"></i></div> --}}
         </div>
         <form action="{{$action}}" method="POST">
