@@ -14,6 +14,7 @@
     {
         .pro-card{
             width: 23rem;
+            
         }
 
         
