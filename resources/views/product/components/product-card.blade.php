@@ -30,15 +30,17 @@
     </div>
     <div class="card-footer d-flex justify-content-center">
         
-
+        <div style="margin-right: 3px;">
         <form action="{{ route('auth.carts.store', ['product' => $product->id]) }}" method="post">
             @csrf
              <button type="submit" class="btn btn-primary m-2 w-100" @if( $product->quantity_in_stock == 0) disabled @endif><i class="bi bi-cart-plus"></i></button>   
         </form>
+        </div>
         
         
         {{-- <a href="#" class="btn btn-primary me-2">Add To Cart</a> --}}
         @if( $product->quantity_in_stock == 0)
+        <div style="margin-left: 3px;">
           <form action="{{ route('mail.notify.store', ['product' => $product->id]) }}" method="post">
             @csrf
             <button class="btn btn-primary m-2 w-100" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="Click to notify you when product is available"
@@ -46,6 +48,7 @@
              <i class="bi bi-bell-fill"></i></button>
             
           </form>
+        </div>
         @endif
 
     </div>
