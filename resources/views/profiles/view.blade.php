@@ -100,7 +100,7 @@
                       <div class=" image d-flex flex-column justify-content-center align-items-center">
                         <button class="btn btn-secondary">
                             
-                                <img src="@if(Auth::user()->userProfile->profile_pic === null) http://localhost:8000/images/user.png @else {{ Auth::user()->userProfile->getUserProfilePic()}} @endif" height="100" width="100" />
+                                <img src="@if(Auth::user()->userProfile->profile_pic === null) {{env('APP_URL')}}/images/user.png @else {{ Auth::user()->userProfile->getUserProfilePic()}} @endif" height="100" width="100" />
                             
                           
                           

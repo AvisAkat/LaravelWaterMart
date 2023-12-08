@@ -64,7 +64,7 @@
     <div class="row">
       <div class="col-md-3 border-right">
         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-          <img class="rounded-circle mt-5" width="150px" src="@if($user->userProfile->profile_pic === null) http://localhost:8000/images/user.png @else {{ $user->userProfile->getUserProfilePic()}} @endif">
+          <img class="rounded-circle mt-5" width="150px" src="@if($user->userProfile->profile_pic === null) {{env('APP_URL')}}/images/user.png @else {{ $user->userProfile->getUserProfilePic()}} @endif">
           <span class=" mt-1" style="width: 88px">
             {{-- <input class="btn" type="file" name="profile_pic" /> --}}
             
