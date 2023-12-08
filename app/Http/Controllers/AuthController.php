@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
 
 
 
@@ -68,6 +69,7 @@ class AuthController extends Controller
         }
         catch (\Throwable $th)
         {
+            Log::error('Deleting movie unsuccessful'. $th->getMessage());
             User::destroy($user->id);
             return redirect(route('auth.signup'))->with(['status' => 'danger', 'message' => 'User registration was not successful. Try again later']);
         }
