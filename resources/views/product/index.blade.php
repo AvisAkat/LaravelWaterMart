@@ -4,6 +4,7 @@
 @section('content')
     
     <div>
+        
         <h1 class="text-center mb-5">Products</h1>
 
         <a class="btn btn-success" href="{{ route('admin.products.create')}}" style="margin-bottom: 4rem "><i class="bi bi-plus-square"></i> Add Product</a>
@@ -32,6 +33,9 @@
                             <a class="btn btn-info" href="{{ route('admin.products.show', ['product' => $products[$product]->id])}}"><i class="bi bi-binoculars"></i></a>
                         </div>
                         <div class="me-2">
+                            <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#addProductQty<?php echo $productID = $products[$product]->id; ?>"><i class="bi bi-plus-lg"></i> </button>
+                        </div>
+                        <div class="me-2">
                             <a class="btn btn-primary" href="{{ route('admin.products.edit', ['product' => $products[$product]->id])}}"><i class="bi bi-pen"></i></a>
                         </div>
                         <div class="me-2">
@@ -52,7 +56,12 @@
                         
                     </td>
                 </tr>
+
+                {{-- PRODUCT QTY(model) --}}
+                @include('product.components.addProductQty')
+                    
                 @endfor
+                 
             </tbody>
         </table>
     </div>

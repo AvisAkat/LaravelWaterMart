@@ -4,43 +4,32 @@
 
 @section('content')
 <style>
-    /* html {
-    height:100%
-    } */
-    /* head,body {
-    background-color:#BA68C8
-    } */
+    .registerform{
+      /* margin-left: 15px;
+      margin-right: 15px; */
+      
+    }
 
     .container-fluid{
         margin-top: 10rem;
     }
     .box1 {
-      /* background-image: url('http://localhost:8000/images/water5.jpg');
-      background-repeat: no-repeat;
-      background-attachment: fixed; 
-      background-size: 100% 100%; */
       
-      /* background-image: url(http://localhost:8000/images/water5.jpg);
-      background-repeat: no-repeat;
-      background-attachment: fixed;   
-      background-size: cover; */
-      
-    /* height:600px */
 
     padding: 0;
     border: 0px;
-    /* margin-right: -300px; */
+    
+    
+    }
+    .box2{
+      transition: 2s ease;
     }
     
     .card-header {
     background:none
     }
     
-    .box2 {
-    /* height:600px */
-    /* margin-top: 50px; 
-    margin-bottom: -50px;  */
-    }
+    
     .heading {
     font-weight:900
     }
@@ -108,68 +97,35 @@
     border:none;
     border-bottom:1px solid lightgray
     }
-    /* .card-number>input {
-    border:none
-    }
-    .card-number {
-    border-bottom:1px solid lightgray
-    }
-    .card-number>input::-webkit-input-placeholder {
-    color:peachpuff;
-    font-size:25px
-    }
-    .card-number>input::-moz-placeholder {
-    color:peachpuff;
-    font-size:25px
-    }
-    .card-number>input:-ms-input-placeholder {
-    color:peachpuff;
-    font-size:25px
-    }
-    .card-number>input::placeholder {
-    color:peachpuff;
-    font-size:25px
-    } */
+   
     input.focus,input:focus {
     outline:0;
     box-shadow:none !important
     }
-    /* .card-number.hover,.card-number:hover {
-    outline:0;
-    box-shadow:none !important;
-    border-bottom:1px solid lightskyblue
-    } */
+    
     
     .form-control {
     border:none;
     border-bottom:1px solid lightgray
     }
-    /* .txt {
-    justify-content:space-between
-    }
-    .txt>p>small {
-    font-weight:900
-    } */
+    
     
     .btnn {
     
-    background-color:#00B8D4;
-    color:white;
-    height: 100%;
-    margin-top: 15px;
+      background-color:#00B8D4;
+      color:white;
+      height: 100%;
+      margin-top: 15px;
     }
     .footer2 {
-    background:none
+      background:none
     }
     .btnn.focus,.btnn:focus {
-    outline:0;
-    box-shadow:none !important
+      outline:0;
+      box-shadow:none !important
     }
-    @media (min-width:1025px) and (max-width:1280px) {
-        .inner {
-        margin-left:150px
-        }
-    }
+
+   
 
     .form-group .alert{
         margin-top: 5px;
@@ -188,13 +144,45 @@
         padding: 3px;
 
     }
+
+    @media (max-width: 992px){
+      .box1{
+        display: none;
+      }
+
+      .box2{
+        width: 100%;
+        box-shadow: -20px 18px 10px 0px #0061d8;
+        
+      }
+
+      
+    }
+
+    @media (min-width: 768px){
+      .container {
+        max-width: 920px;
+      }
+
+    
+    }
+
+    @media (max-width: 576px){
+      .registerform{
+        margin-left: 15px;
+        margin-right: 15px; 
+        
+      }
+
+      
+    }
 </style>
 
 
 
 
     {{-- Image --}}
-    <div class="inner row d-flex justify-content-center mb-5">
+    <div class="inner row d-flex justify-content-center mb-5 registerform">
       <div class="card col-md-5 col-12 box1">
 
         @if($active)

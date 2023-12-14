@@ -211,7 +211,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <button type="button" class="btn1 nav-link px-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button type="button" class="btn1 nav-link px-2" data-bs-toggle="modal" data-bs-target="#profileModal">
                         {{-- {{ Auth::user()->email }} --}}
                         <img src="@if(Auth::user()->userProfile->profile_pic === null) {{env('APP_URL')}}/images/user.png @else {{ Auth::user()->userProfile->getUserProfilePic()}} @endif" />
                     </button>

@@ -38,6 +38,7 @@
     <style>
         body{
                 background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
+                /* background: -webkit-linear-gradient(left, rgb(123, 0, 255), #00c6ff); */
             }
     </style>
 </head>
@@ -55,16 +56,19 @@
     @endif
 
     @if (session('status'))
-        <div class="alert alert-{{session('status')}} mb-4" style="margin-top: 7rem;">
+        <div class="alert alert-{{session('status')}} mb-4" style="margin-top: 7rem;text-align: left;">
             {{ session('message') }}
         </div>
     @endif
     
 
-    <main class="container" style="{{ $status ? 'margin-top: 4rem;' : 'margin-top: 10rem;'}}">
+    <main class="container" style="{{ $status ? 'margin-top: 4rem;' : 'margin-top: 10rem;'}}margin-bottom: 5rem;">
 
-        {{-- USER PROFILE --}}
+        {{-- USER PROFILE(model) --}}
         @include('profiles.view')
+
+        {{-- PRODUCT QTY(model)
+        @include('product.components.addProductQty') --}}
         
         
         @yield('content')

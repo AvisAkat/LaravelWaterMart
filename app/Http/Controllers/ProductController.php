@@ -7,6 +7,7 @@ use App\Models\Brand;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class ProductController extends Controller
@@ -168,21 +169,33 @@ class ProductController extends Controller
         catch (\Throwable $th)
         {
             // the Log is for displaying error in the laravel.log file 
-            // Log::error('Deleting movie unsuccessful'. $th->getMessage());
+            Log::error('Deleting movie unsuccessful'. $th->getMessage());
             return redirect()->back()->with(["status" => "danger","message" => "Not deleted"]);
         }
     }
 
-    public function sendNotification(Request $request, string $id)
+    
+
+    public function addProductQuantity(Request $request, string $id)
     {
-        $product = Product::findOrFail($id);
-        // dd($id);
 
-        Mail::to(Auth::user()->email)->send(new Notification(Auth::user()->name,collect($product)));
+        // dd($request);
+        $request->validate(['quantity_in_stock' => ['required', 'min:1', "integer"]],[],['quantity_in_stock' => 'Quantity']);
 
-        return redirect()->back()->with(['status'=> 'success', 'message'=> 'We will notify you when the product is available']);
+        try{
 
-
+            $product = Product::findOrFail($id);
+            $product->quantity_in_stock = $product->quantity_in_stock + $request->quantity_in_stock;
+            $product->save();
+            
+            return redirect()->route('admin.products.index')->with(['status'=> 'success', 'message'=> "$request->quantity_in_stock $product->name added successfully  "]);
+        }
+        catch (\Throwable $th)
+        {
+            // the Log is for displaying error in the laravel.log file 
+            Log::error('adding product quantity unseccessfully'. $th->getMessage());
+            return redirect()->back()->with(["status" => "danger","message" => "Not Added"]);
+        }
 
     }
 }

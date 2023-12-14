@@ -24,13 +24,13 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/test', function () {
-    return view('masterLayout.test');
-});
+// Route::get('/test', function () {
+//     return view('masterLayout.test');
+// });
 
-Route::get('/form', function () {
-    return view('auth.registerForm');
-});
+// Route::get('/form', function () {
+//     return view('auth.registerForm');
+// });
 
 
 // HOME PAGE
@@ -51,12 +51,12 @@ Route::prefix('/auth')->name('auth.')->group(function () {
     Route::post('logout', [AuthController::class, 'logoutUser'])->name('logout')->middleware(['auth']);
 
     // CART
-    Route::post('carts/{product}', [CartController::class, 'store'])->name('carts.store');
-    Route::get('carts', [CartController::class, 'index'])->name('carts.index');
-    Route::delete('carts/{cart}', [CartController::class, 'destroy'])->name('carts.destroy');
+    Route::post('carts/{product}', [CartController::class, 'store'])->name('carts.store')->middleware(['auth']);
+    Route::get('carts', [CartController::class, 'index'])->name('carts.index')->middleware(['auth']);
+    Route::delete('carts/{cart}', [CartController::class, 'destroy'])->name('carts.destroy')->middleware(['auth']);
 
     //BUYING ITEMS
-    Route::post('buy/{cart}', [CartController::class, 'buyItems'])->name('carts.buyItems');
+    Route::post('buy/{cart}', [CartController::class, 'buyItems'])->name('carts.buyItems')->middleware(['auth']);
 
 });
  
@@ -67,6 +67,9 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth','admin'])->group(fun
     Route::resource('/sales', SaleController::class);
     Route::resource('/users', UserController::class);
     Route::resource('/brands', BrandController::class);
+
+    // ADDING PRODUCT QUANTITY
+    Route::post('productQty/{product}', [ProductController::class, 'addProductQuantity'])->name('add.product.quanity');
 
 
 });
