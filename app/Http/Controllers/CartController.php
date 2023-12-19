@@ -26,20 +26,30 @@ class CartController extends Controller
         
 
         
-        $product = Cart::where('product_id', '=', $product_id)->where('user_id', '=', Auth::user()->id)->get();
-       
-
-        if ($product->isEmpty()) 
+        try
         {
-            Cart::create([
-                'user_id' => Auth::user()->id,
-                'product_id' => $product_id,            
-            ]);
 
+            $product = Cart::where('product_id', '=', $product_id)->where('user_id', '=', Auth::user()->id)->get();
             
+            
+            if ($product->isEmpty()) 
+            {
+                Cart::create([
+                    'user_id' => Auth::user()->id,
+                    'product_id' => $product_id,            
+                ]);
+                
+                
+            }
+            
+            return redirect()->back()->with(['status'=> 'success', 'message'=> 'Added to cart successfully']);
         }
-
-        return redirect()->back()->with(['status'=> 'success', 'message'=> 'Added to cart successfully']);
+        catch (\Throwable $th)
+        {
+            // the Log is for displaying error in the laravel.log file 
+            Log::error('adding to cart'. $th->getMessage());
+            return redirect()->back()->with(["status" => "danger","message" => "You haven't signed in"]);
+        }
 
 
     }
