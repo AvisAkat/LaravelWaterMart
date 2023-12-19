@@ -221,7 +221,7 @@
                 <li class="nav-item">
                     <form action="{{route('auth.logout')}}" method="POST">
                         @csrf
-                        <button class="btn nav-link px-2" type="submit" ><i class="bi bi-door-open"></i></a>
+                        <button class="btn nav-link px-2" type="submit" >Logout</a>
                     </form>
                 </li>
 
